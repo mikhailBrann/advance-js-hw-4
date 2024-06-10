@@ -1,21 +1,14 @@
-export default function healthIndicator(person) {
-    let result = false;
+export default function healthIndicator(obj) {
 
-    if(!typeof person !== 'object' && !person.hasOwnProperty('health')) {
-        return result;
+    if(obj.health > 50) {
+        return "healthy"; 
     }
 
-    if(person.health > 50) {
-        result = 'healthy';
+    if(obj.health < 50 && obj.health >= 15) {
+        return "wounded";
     }
 
-    if(person.health <= 50 && person.health > 15) {
-        result = 'wounded';
+    if(obj.health < 15) {
+        return "critical";
     }
-
-    if(person.health <= 15) {
-        result = 'critical';
-    }
-
-    return result;
 }
